@@ -8,7 +8,7 @@ const application = require('../../../routes/application')
 module.exports = async function (obj) {
     try {
         if (obj.req.params.function == 'getEvents') {
-            let eventos = await db.getModel('eve_evento').findAll({ where: { publicar: true } });
+            let eventos = await db.getModel('eve_evento').findAll({ where: { publicar: true }, order: [['data_evento', 'desc']] });
             let data = [];
             for (let i = 0; i < eventos.length; i++) {
                 let fotocapa = JSON.parse(eventos[i].fotocapa || '[]')[0];
