@@ -19,6 +19,7 @@ module.exports = async function (obj) {
                 }
                 data.push({
                     id: eventos[i].id
+                    , data: application.formatters.fe.date(eventos[i].data_evento)
                     , description: eventos[i].descricao
                     , capa: fotocapa ? `${fotocapa.id}` : null
                     , fotos: fp
